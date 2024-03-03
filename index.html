@@ -7,8 +7,23 @@
     <link rel="stylesheet" href="styles.css" >
 </head>
 <body>
-    
-
+    <h1>Library</h1>
+    <form action="" id="addBookForm">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" placeholder="Type title"><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" placeholder="Type author"> <br>
+        <label for="pages">Pages:</label><br>
+        <input type="text" id="pages" placeholder="Type number of pages"> <br><br>	
+        <p>Status:</p>
+        <label for="read">Read</label>
+        <input type="radio" id="read" name="status" value="Read"><br>
+        <label for="reading">Reading</label>
+        <input type="radio" id="reading" name="status" value="Reading"><br>
+        <label for="unread">Unread</label>	
+        <input type="radio" id="unread" name="status" value="Unread">	<br><br>	
+        <input type="submit" id="submit" value="Add book" >
+    </form>
 
 <script src="script.js"></script>  
 </body>
