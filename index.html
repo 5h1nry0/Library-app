@@ -9,21 +9,37 @@
 <body>
     <h1>Library</h1>
     <form action="" id="addBookForm">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" placeholder="Type title"><br>
-        <label for="author">Author:</label><br>
-        <input type="text" id="author" placeholder="Type author"> <br>
-        <label for="pages">Pages:</label><br>
-        <input type="text" id="pages" placeholder="Type number of pages"> <br><br>	
-        <p>Status:</p>
+        <div class="form-row">
+            <label for="title">Title:</label>
+            <input type="text" 
+                   id="title" 
+                   placeholder="Type title"/>
+        </div>
+        <div class="form-row">
+            <label for="author">Author:</label>
+            <input type="text" 
+                   id="author" 
+                   placeholder="Type author"/>
+        </div>
+        <div class="form-row">
+            <label for="pages">Pages:</label>
+            <input type="number" 
+                   id="pages" 
+                   placeholder="Type number of pages"/>
+        </div>
+        <legend>Status:</legend>
         <label for="read">Read</label>
-        <input type="radio" id="read" name="status" value="Read"><br>
+        <input type="radio" id="status" name="status" value="Read">
         <label for="reading">Reading</label>
-        <input type="radio" id="reading" name="status" value="Reading"><br>
+        <input type="radio" id="status" name="status" value="Reading">
         <label for="unread">Unread</label>	
-        <input type="radio" id="unread" name="status" value="Unread">	<br><br>	
-        <input type="submit" id="submit" value="Add book" >
+        <input type="radio" id="status" name="status" value="Unread">	
+        <input type="button" id="submit-book" value="Add book" >
     </form>
+
+    <div class="books-container" id="books-container">
+
+    </div>
 
 <script src="script.js"></script>  
 </body>
