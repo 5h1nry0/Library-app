@@ -18,95 +18,118 @@ let addBook = document.getElementById("add-book");
 
 addBook.addEventListener("click", (e) => {
     const formContainer = document.getElementById('form-container')
+    
+    if (formContainer.hasChildNodes()) {return}
 
+    else {
     const form = document.createElement("form");
     form.setAttribute("id", "addBookForm");
     formContainer.appendChild(form)
 
-        const formRowOne = document.createElement("div");
-        formRowOne.setAttribute("id", "form-row-1");
-        form.appendChild(formRowOne)
+        const formInputs = document.createElement("div");
+        formInputs.setAttribute("id", "form-inputs");
+        form.appendChild(formInputs)
 
-            const titleLabel = document.createElement("label");
-            titleLabel.setAttribute("for", "title");
-            titleLabel.textContent = "Title"
-            formRowOne.appendChild(titleLabel);
+            const formRowOne = document.createElement("div");
+            formRowOne.setAttribute("id", "form-row-1");
+            formInputs.appendChild(formRowOne)
 
-            const inputTitle = document.createElement("input");
-            inputTitle.setAttribute("type", "text");
-            inputTitle.setAttribute("id", "title");
-            inputTitle.setAttribute("placeholder", "Type title");
-            formRowOne.appendChild(inputTitle);
+                const titleLabel = document.createElement("label");
+                titleLabel.setAttribute("for", "title");
+                titleLabel.textContent = "Title"
+                formRowOne.appendChild(titleLabel);
 
-        const formRowTwo = document.createElement("div");
-        formRowTwo.setAttribute("id", "form-row-2");
-        form.appendChild(formRowTwo)
+                const inputTitle = document.createElement("input");
+                inputTitle.setAttribute("type", "text");
+                inputTitle.setAttribute("id", "title");
+                inputTitle.setAttribute("placeholder", "Type title");
+                formRowOne.appendChild(inputTitle);
 
-            const authorLabel = document.createElement("label")
-            authorLabel.textContent = "Author"
-            authorLabel.setAttribute("for", "author");
-            formRowTwo.appendChild(authorLabel)
+            const formRowTwo = document.createElement("div");
+            formRowTwo.setAttribute("id", "form-row-2");
+            formInputs.appendChild(formRowTwo)
 
-            const inputAuthor = document.createElement("input")
-            inputAuthor.setAttribute("type", "text");
-            inputAuthor.setAttribute("id", "author");
-            inputAuthor.setAttribute("placeholder", "Type author");
-            formRowTwo.appendChild(inputAuthor);
+                const authorLabel = document.createElement("label")
+                authorLabel.textContent = "Author"
+                authorLabel.setAttribute("for", "author");
+                formRowTwo.appendChild(authorLabel)
 
-        const formRowThree = document.createElement("div")
-        formRowThree.setAttribute("id", "form-row-3");
-        form.appendChild(formRowThree)
+                const inputAuthor = document.createElement("input")
+                inputAuthor.setAttribute("type", "text");
+                inputAuthor.setAttribute("id", "author");
+                inputAuthor.setAttribute("placeholder", "Type author");
+                formRowTwo.appendChild(inputAuthor);
 
-            const pagesLabel = document.createElement("label")
-            pagesLabel.textContent = "Pages"
-            pagesLabel.setAttribute("for", "pages");
-            formRowThree.appendChild(pagesLabel)
+            const formRowThree = document.createElement("div")
+            formRowThree.setAttribute("id", "form-row-3");
+            formInputs.appendChild(formRowThree)
 
-            const inputPages = document.createElement("input")
-            inputPages.setAttribute("type", "number");
-            inputPages.setAttribute("id", "pages");
-            inputPages.setAttribute("placeholder", "Type number of pages");
-            formRowThree.appendChild(inputPages);
+                const pagesLabel = document.createElement("label")
+                pagesLabel.textContent = "Pages"
+                pagesLabel.setAttribute("for", "pages");
+                formRowThree.appendChild(pagesLabel)
+
+                const inputPages = document.createElement("input")
+                inputPages.setAttribute("type", "number");
+                inputPages.setAttribute("id", "pages");
+                inputPages.setAttribute("placeholder", "Type number of pages");
+                formRowThree.appendChild(inputPages);
+            
+            const formRowFour = document.createElement("div")
+            formRowFour.setAttribute("id", "form-row-4");
+            formInputs.appendChild(formRowFour)
         
-        const statusLegend = document.createElement("legend")
-        statusLegend.textContent = "Status:"
-        form.appendChild(statusLegend);
+                const statusLegend = document.createElement("legend")
+                statusLegend.textContent = "Status:"
+                formRowFour.appendChild(statusLegend);
 
-        const readLabel = document.createElement("label")
-        readLabel.textContent = "Read"
-        readLabel.setAttribute("for", "read");
-        form.appendChild(readLabel)
+                const radioColOne = document.createElement("div")
+                radioColOne.setAttribute("id", "radio-col-1");
+                formRowFour.appendChild(radioColOne)
 
-        const inputRead = document.createElement("input")
-        inputRead.setAttribute("type", "radio");
-        inputRead.setAttribute("id", "read");
-        inputRead.setAttribute("name", "status");
-        inputRead.setAttribute("value", "read");
-        form.appendChild(inputRead);
+                    const readLabel = document.createElement("label")
+                    readLabel.textContent = "Read"
+                    readLabel.setAttribute("for", "read");
+                    radioColOne.appendChild(readLabel)
 
-        const readingLabel = document.createElement("label")
-        readingLabel.textContent = "Reading"
-        readingLabel.setAttribute("for", "reading");
-        form.appendChild(readingLabel)
+                    const inputRead = document.createElement("input")
+                    inputRead.setAttribute("type", "radio");
+                    inputRead.setAttribute("id", "read");
+                    inputRead.setAttribute("name", "status");
+                    inputRead.setAttribute("value", "read");
+                    radioColOne.appendChild(inputRead);
 
-        const inputReading = document.createElement("input")
-        inputReading.setAttribute("type", "radio");
-        inputReading.setAttribute("id", "reading");
-        inputReading.setAttribute("name", "status");
-        inputReading.setAttribute("value", "reading");
-        form.appendChild(inputReading);
+                const radioColTwo = document.createElement("div")
+                radioColTwo.setAttribute("id", "radio-col-2");
+                formRowFour.appendChild(radioColTwo)
 
-        const unreadLabel = document.createElement("label")
-        unreadLabel.textContent = "Unread"
-        unreadLabel.setAttribute("for", "unread");
-        form.appendChild(unreadLabel)
+                    const readingLabel = document.createElement("label")
+                    readingLabel.textContent = "Reading"
+                    readingLabel.setAttribute("for", "reading");
+                    radioColTwo.appendChild(readingLabel)
 
-        const inputUnread = document.createElement("input")
-        inputUnread.setAttribute("type", "radio");
-        inputUnread.setAttribute("id", "unread");
-        inputUnread.setAttribute("name", "status");
-        inputUnread.setAttribute("value", "unread");
-        form.appendChild(inputUnread);
+                    const inputReading = document.createElement("input")
+                    inputReading.setAttribute("type", "radio");
+                    inputReading.setAttribute("id", "reading");
+                    inputReading.setAttribute("name", "status");
+                    inputReading.setAttribute("value", "reading");
+                    radioColTwo.appendChild(inputReading);
+
+                const radioColThree = document.createElement("div")
+                radioColThree.setAttribute("id", "radio-col-3");
+                formRowFour.appendChild(radioColThree)
+
+                    const unreadLabel = document.createElement("label")
+                    unreadLabel.textContent = "Unread"
+                    unreadLabel.setAttribute("for", "unread");
+                    radioColThree.appendChild(unreadLabel)
+
+                    const inputUnread = document.createElement("input")
+                    inputUnread.setAttribute("type", "radio");
+                    inputUnread.setAttribute("id", "unread");
+                    inputUnread.setAttribute("name", "status");
+                    inputUnread.setAttribute("value", "unread");
+                    radioColThree.appendChild(inputUnread);
 
         const submitButton = document.createElement("input")
         submitButton.setAttribute("type", "button");
@@ -125,6 +148,7 @@ addBook.addEventListener("click", (e) => {
             formContainer.removeChild(form)
             displayBooks()
             })
+    }
 })
 
 
