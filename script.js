@@ -8,7 +8,7 @@ function Book(title,author,pages,status) {
     this.pages = pages;
     this.status = status;
     this.info = function() {
-        return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status
+        return this.title + ' by ' + this.author 
     } 
 
 }
@@ -159,15 +159,49 @@ function displayBooks() {
         bookCard.classList.add("book-card");
         booksContainer.appendChild(bookCard)
 
-        const bookText = document.createElement("p"); 
+        const bookText = document.createElement("h3"); 
         bookText.classList.add("book-text"); 
         bookText.textContent =  myLibrary[i].info();
         bookCard.appendChild(bookText);
 
+        const bookPages = document.createElement("h3"); 
+        bookPages.classList.add("book-text"); 
+        bookPages.textContent =  myLibrary[i].pages + " pages";
+        bookCard.appendChild(bookPages);
+
+        const bookStatus = document.createElement("h3"); 
+        bookStatus.classList.add("book-text"); 
+        bookStatus.textContent = "Status: " + myLibrary[i].status;
+        bookCard.appendChild(bookStatus);
+
+        const bookButtons = document.createElement("div");
+        bookButtons.classList.add("book-buttons");
+        bookCard.appendChild(bookButtons)
+
+        const statusButton = document.createElement("button");
+        statusButton.classList.add("status-button");
+        statusButton.textContent = "Change status";
+        bookButtons.appendChild(statusButton);
+
+        (function (index) {
+            statusButton.addEventListener('click', () => {
+                if (myLibrary[index].status == 'read') {
+                    myLibrary[index].status = 'reading';
+                    bookStatus.textContent = "Status: " + myLibrary[i].status;
+                } else if (myLibrary[index].status == 'reading') {
+                    myLibrary[index].status = 'unread';
+                    bookStatus.textContent = "Status: " + myLibrary[i].status;
+                } else if (myLibrary[index].status == 'unread') {
+                    myLibrary[index].status = 'read';
+                    bookStatus.textContent = "Status: " + myLibrary[i].status;
+                }
+            });
+        })(i);
+
         const deleteBook = document.createElement("button");
         deleteBook.classList.add("delete-book");
         deleteBook.textContent = "Delete book";
-        bookCard.appendChild(deleteBook);
+        bookButtons.appendChild(deleteBook);
 
         deleteBook.addEventListener('click', () => {
             const index = myLibrary.indexOf(bookText.textContent);
@@ -175,25 +209,6 @@ function displayBooks() {
             myLibrary.splice(index, 1);
         })
 
-        const statusButton = document.createElement("button");
-        statusButton.classList.add("status-button");
-        statusButton.textContent = myLibrary[i].status;
-        bookCard.appendChild(statusButton);
-
-        (function (index) {
-            statusButton.addEventListener('click', () => {
-                if (myLibrary[index].status == 'read') {
-                    myLibrary[index].status = 'reading';
-                    bookText.textContent =  myLibrary[i].info();
-                } else if (myLibrary[index].status == 'reading') {
-                    myLibrary[index].status = 'unread';
-                    bookText.textContent =  myLibrary[i].info();
-                } else if (myLibrary[index].status == 'unread') {
-                    myLibrary[index].status = 'read';
-                    bookText.textContent =  myLibrary[i].info();
-                }
-                statusButton.textContent = myLibrary[index].status;
-            });
-        })(i);
+      
     } 
 }
