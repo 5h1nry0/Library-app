@@ -1,20 +1,32 @@
-const myLibrary = []
+const myLibrary = [];
 const booksContainer = document.querySelector(".books-container");
+const addBook = document.getElementById("add-book");
 
 
-function Book(title,author,pages,status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-    this.info = function() {
+
+// function Book(title,author,pages,status) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.status = status;
+//     this.info = function() {
+//         return this.title + ' by ' + this.author 
+//     } 
+
+// }
+
+class Book{
+
+    constructor(title,author,pages,status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
+    get info(){
         return this.title + ' by ' + this.author 
-    } 
-
+    }
 }
-
-
-let addBook = document.getElementById("add-book");
 
 addBook.addEventListener("click", (e) => {
     const formContainer = document.getElementById('form-container')
@@ -161,7 +173,7 @@ function displayBooks() {
 
         const bookText = document.createElement("h3"); 
         bookText.classList.add("book-text"); 
-        bookText.textContent =  myLibrary[i].info();
+        bookText.textContent =  myLibrary[i].info;
         bookCard.appendChild(bookText);
 
         const bookPages = document.createElement("h3"); 
@@ -208,7 +220,5 @@ function displayBooks() {
             booksContainer.removeChild(bookCard);
             myLibrary.splice(index, 1);
         })
-
-      
     } 
 }
