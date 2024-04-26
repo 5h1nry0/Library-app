@@ -2,19 +2,6 @@ const myLibrary = [];
 const booksContainer = document.querySelector(".books-container");
 const addBook = document.getElementById("add-book");
 
-
-
-// function Book(title,author,pages,status) {
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.status = status;
-//     this.info = function() {
-//         return this.title + ' by ' + this.author 
-//     } 
-
-// }
-
 class Book{
 
     constructor(title,author,pages,status) {
@@ -162,7 +149,6 @@ addBook.addEventListener("click", (e) => {
             })
     }
 })
-
 
 function displayBooks() {
     booksContainer.textContent = '';
